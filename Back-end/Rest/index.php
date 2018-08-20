@@ -6,7 +6,7 @@ Estes são os serviços oferecidos por este servidor:
     <li><b>Buscar cargo de funcionario:</b> /softvision/api/funcionario-cargo/buscar/[codigo]</li>
     <li><b>Listar cargos de funcionario:</b> /softvision/api/funcionario-cargo/listar</li>
     <li><b>Incluir cargo de funcionario:</b> /softvision/api/funcionario-cargo/incluir (método POST)</li>
-    <li><b>Excluir cargo de funcionario:</b> /softvision/api/funcionario-cargo/excluir (método POST)</li>
+    <li><b>Excluir cargo de funcionario:</b> /softvision/api/funcionario-cargo/excluir/[codigo]</li>
     <li><b>Editar cargo de funcionario:</b> /softvision/api/funcionario-cargo/editar (método POST)</li>
 </ul>
 Use a vontade!
