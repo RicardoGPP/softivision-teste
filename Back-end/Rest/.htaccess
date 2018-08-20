@@ -1,0 +1,13 @@
+#Habilita a engine do Apache para roteamento
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#Roteamento das requisições para o módulo de recepção
+RewriteRule ^softvision/api/cargo/listar$ Recepcao.php?metodo=obterCargos [L]
+RewriteRule ^softvision/api/empresa/listar$ Recepcao.php?metodo=obterEmpresas [L]
+RewriteRule ^softvision/api/funcionario-cargo/buscar/([0-9]*)$ Recepcao.php?metodo=obterFuncionarioCargo&codigo=$1 [L]
+RewriteRule ^softvision/api/funcionario-cargo/listar$ Recepcao.php?metodo=obterFuncionarioCargos [L]
+RewriteRule ^softvision/api/funcionario-cargo/incluir$ Recepcao.php?metodo=incluirFuncionarioCargo [L]
+RewriteRule ^softvision/api/funcionario-cargo/excluir/([0-9]*)$ Recepcao.php?metodo=excluirFuncionarioCargo&codigo=$1 [L]
+RewriteRule ^softvision/api/funcionario-cargo/editar$ Recepcao.php?metodo=editarFuncionarioCargo [L]

@@ -1,0 +1,49 @@
+<div class="container-item">
+    <div class="container-item-codigo">
+      {{funcionarioCargo.codigo}}
+    </div>
+    <div class="container-item-dados">
+      <div class="container-item-dados-titulo">
+        {{funcionarioCargo.cargo.nome}}
+        <span class="badge badge-info" *ngIf="eCargoAtual()">
+          Atual
+        </span>
+      </div>
+      <div class="container-item-dados-detalhes">
+        <div class="container-item-dados-detalhes-item">
+          <div class="container-item-dados-detalhes-item-titulo">
+            Instituição:
+          </div>
+          <div class="container-item-dados-detalhes-item-valor">
+            {{funcionarioCargo.empresa.nome}}
+          </div>
+        </div>
+        <div class="container-item-dados-detalhes-item">
+          <div class="container-item-dados-detalhes-item-titulo">
+            Data início:
+          </div>
+          <div class="container-item-dados-detalhes-item-valor">
+            {{funcionarioCargo.dataInicio | date: "dd/MM/yyyy"}}
+          </div>
+        </div>
+        <div class="container-item-dados-detalhes-item" *ngIf="!eCargoAtual()">
+          <div class="container-item-dados-detalhes-item-titulo">
+            Data fim:
+          </div>
+          <div class="container-item-dados-detalhes-item-valor">
+            {{funcionarioCargo.dataFim | date: "dd/MM/yyyy"}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-item-botoes">
+      <button class="btn btn-outline-success" [routerLink]="['/editar', funcionarioCargo.codigo]">
+        <i class="fas fa-plus-circle"></i>
+        Editar
+      </button>
+      <button class="btn btn-outline-danger" (click)="eventoCliqueExcluir()">
+        <i class="fas fa-trash"></i>
+        Excluir
+      </button>   
+    </div>
+</div>

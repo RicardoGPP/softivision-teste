@@ -1,0 +1,56 @@
+.container-geral-cabecalho {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.container-geral-cabecalho-titulo {
+  width: calc(100% - 220px);
+}
+
+.container-geral-cabecalho-mensagem {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-geral-cabecalho-mensagem-asterisco {
+  width: 30px;
+  text-align: center;
+}
+
+.container-geral-cabecalho-mensagem-texto {
+  width: 190px;
+  font-size: 14px;
+}
+
+.container-geral-formulario-botoes {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.container-geral-formulario-botoes :nth-child(1) { order: 2; }
+.container-geral-formulario-botoes :nth-child(2) { order: 1; }
+
+.container-geral-formulario-botoes button {
+  margin-left: 5px;
+}
+
+.container-geral-formulario {
+  width: 100%;
+}
+
+.container-geral-formulario-linha {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.container-geral-formulario-linha-coluna {
+  width: 50%;
+}
+
+label {
+  margin-bottom: 2px;
+}

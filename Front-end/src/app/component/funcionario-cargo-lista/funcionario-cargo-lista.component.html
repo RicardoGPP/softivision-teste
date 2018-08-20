@@ -1,0 +1,10 @@
+<div class="container-geral">
+  <div class="container-geral-botao">
+    <button class="btn btn-outline-primary" [routerLink]="['/adicionar']">
+      Adicionar
+      <i class="fas fa-plus-circle"></i>
+    </button>
+  </div>
+  <sv-funcionario-cargo-item *ngFor="let funcionarioCargo of funcionarioCargos" [funcionarioCargo]="funcionarioCargo" (eventoCliqueExcluirPai)="excluir(funcionarioCargo)">
+  </sv-funcionario-cargo-item>
+</div>

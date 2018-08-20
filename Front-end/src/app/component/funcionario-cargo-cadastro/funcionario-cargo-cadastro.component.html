@@ -1,0 +1,66 @@
+<div class="container-geral">
+  <div class="container-geral-cabecalho">
+      <div class="container-geral-cabecalho-titulo">
+        <h4>Adicione um cargo</h4>
+      </div>
+     <div class="container-geral-cabecalho-mensagem">
+       <div class="container-geral-cabecalho-mensagem-asterisco">
+          <i class="fas fa-asterisk" style="color: #dc5349"></i>
+       </div>
+       <div class="container-geral-cabecalho-mensagem-texto">
+         Campos com asterísco são de preenchimento obrigatório.
+       </div>
+     </div>
+  </div>
+  <div class="container-geral-formulario">
+    <form #form="ngForm" novalidate>
+      <div class="container-geral-formulario-linha">
+        <div class="custom-control custom-checkbox">
+          <input class="custom-control-input" type="checkbox" id="cargoAtual" name="cargoAtual" [(ngModel)]="cargoAtual">
+          <label class="custom-control-label" for="cargoAtual">Cargo atual</label>
+        </div>
+      </div>
+      <div class="container-geral-formulario-linha">
+        <div class="container-geral-formulario-linha-coluna">
+          <label for="cargo"><font color="#dc5349">*</font>Cargo:</label>
+          <select class="form-control" [compareWith]="comparar" id="cargo" name="cargo" [(ngModel)]="funcionarioCargo.cargo" required>
+            <option *ngFor="let cargo of cargos" [ngValue]="cargo">
+              {{cargo.nome}}
+            </option>
+          </select>
+        </div>
+        <div class="container-geral-formulario-linha-coluna">
+          <label for="empresa"><font color="#dc5349">*</font>Empresa:</label>
+          <select class="form-control" [compareWith]="comparar" id="empresa" name="empresa" [(ngModel)]="funcionarioCargo.empresa" required>
+            <option *ngFor="let empresa of empresas" [ngValue]="empresa">
+              {{empresa.nome}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="container-geral-formulario-linha">
+        <div class="container-geral-formulario-linha-coluna">
+          <label for="dataInicio"><font color="#dc5349">*</font>Data início:</label>
+          <input class="form-control" type="date" id="dataInicio" name="dataInicio" [(ngModel)]="funcionarioCargo.dataInicio" required/>
+        </div>
+        <div class="container-geral-formulario-linha-coluna" *ngIf="!cargoAtual">
+          <label for="dataFim"><font color="#dc5349">*</font>Data fim:</label>
+          <input class="form-control" type="date" id="dataFim" name="dataFim" [(ngModel)]="funcionarioCargo.dataFim" required="!cargoAtual"/>
+        </div>
+      </div>
+      <div class="container-geral-formulario-linha" style="display: flex; flex-direction: column">
+        <label for="descricao">Descrição:</label>
+        <textarea class="form-control" name="descricao" id="descricao" rows="8" cols="80" [(ngModel)]="funcionarioCargo.descricao" maxlength="200">
+        </textarea>
+      </div>
+    </form>
+    <div class="container-geral-formulario-botoes">
+      <button class="btn btn-light" style="color: #dc5349" [routerLink]="['/']">
+        Cancelar
+      </button>
+      <button class="btn btn-primary" (click)="gravar()" [disabled]="!form.valid || (funcionarioCargo.dataFim != null && funcionarioCargo.dataFim < funcionarioCargo.dataInicio)">
+        Gravar
+      </button>
+    </div>
+  </div>
+</div>
